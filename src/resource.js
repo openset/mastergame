@@ -5,7 +5,7 @@ var res_enemy02 = "res/enemy_02.png";
 var res_enemy03 = "res/enemy_03.png";
 var res_enemy04 = "res/enemy_04.png";
 var res_player = "res/player.png";
-var res_ad2 ="res/ad02.png";
+var res_ad2 = "res/ad02.png";
 var res_agin_btn = "res/agin_btn.png";
 var res_background = "res/background.jpg";
 var res_contents = "res/contents.png";
@@ -19,7 +19,6 @@ var sound_click = "res/click.mp3";
 var sound_death = "res/death.mp3";
 var sound_restart = "res/restart.mp3";
 var sound_start = "res/start.mp3";
-
 var res_f_head = "res/f_head.png";
 var res_f_head1 = "res/f_head1.png";
 var res_f_head2 = "res/f_head2.png";
@@ -39,16 +38,18 @@ var g_resources = [
     {src:res_background},
     {src:res_contents},
     {src:res_dialog_bg},
-    {src:res_k_head},
-    {src:res_k_head2},
     {src:res_more_btn},
     {src:res_share_btn},
     {src:res_start},
     {src:res_share},
     {src:res_tiptitle},
     {src:res_f_head},
-    {src:res_f_head2},
     {src:res_f_head1},
-    {src:res_k_head1},{src:res_k_head3},{src:res_f_head3}
+    {src:res_f_head2},
+    {src:res_f_head3},
+    {src:res_k_head},
+    {src:res_k_head1},
+    {src:res_k_head2},
+    {src:res_k_head3}
 
 ];

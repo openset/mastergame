@@ -15,7 +15,6 @@ var ContentLayer = cc.Layer.extend
         }
         else if ('mouse' in sys.capabilities )
             this.setMouseEnabled(true);
-
     },
     onEnter:function()
     {
@@ -47,6 +46,7 @@ var ContentLayer = cc.Layer.extend
         var player = cc.Sprite.create(headSrc==res_f_head1?res_f_head:res_k_head);
         player.setPosition(this.winSize.width/2,this.winSize.height/2);
         this.addChild(player);
+
         var tip = cc.Sprite.create(res_tiptitle);
         tip.setPosition(this.winSize.width/2,this.winSize.height/2+100);
         tip.runAction(cc.RepeatForever.create(cc.Sequence.create(cc.MoveBy.create(1,cc.p(0,-25)),cc.MoveBy.create(1,cc.p(0,25)))));

@@ -3,25 +3,18 @@
  */
 
 var AD = ["res/ad02.png"];
-
 var ADLink = ["http://127.0.0.1"];
-
 var androidAD = ["res/ad01.png", "res/ad03.png"];
-
 var androidADLink = ["http://127.0.0.1","http://127.0.0.1"];
-
 var iosAD = ["res/ad01.png", "res/ad03.png"];
-
 var iosADLink = ["http://127.0.0.1","http://127.0.0.1"];
 
 var adPush = function(b) {
 
     var e = document.createElement("a");
-
     var a = Math.random() * AD.length >> 0;
 
     e.target = "_blank";
-
     e.href = ADLink[a];
 
     e.addEventListener("touchstart", function() {
@@ -79,66 +72,38 @@ var adPush = function(b) {
     }
 
     d.target = "_blank";
-
     d.style.height = 120 * window.devicePixelRatio/2 + 'px';
-
     d.style.backgroundSize = "100%";
-
     d.className = "adbox";
 
     if (b) {
-
         $(".adbox").remove();
-
         $(".adbox2").remove();
-
     } else {
-
         $("body").append(e);
-
         $("body").append(d);
-
     }
 
 };
 
-
 var headSrc = "res/k_head.png";
-
 var head2Src = null;
-
 var ShareWords = "哥，挺住18秒！躲开条子。这次坚持了1秒，击败了全国1%的人";
-
-var GameLayer = cc.Layer.extend
-
-({
+var GameLayer = cc.Layer.extend({
 
     player:null,
-
     winSize:null,
-
     touchBeginPosition:null,
-
     playerBeginPosition:null,
-
     isSelected:false,
-
     playerSize:null,
-
     enmeyList:[],
-
     enmeyDiectionList:[],
-
     leftBottom:null,
-
     rightTop:null,
-
     isStart:false,
-
     contentLayer:null,
-
     coefficient:1.0,
-
     time:0.0,
 
     ctor:function () {
@@ -154,7 +119,6 @@ var GameLayer = cc.Layer.extend
         else if ('mouse' in sys.capabilities )
 
             this.setMouseEnabled(true);
-
     },
 
 //    registerWithTouchDispatcher:function(){
@@ -163,9 +127,7 @@ var GameLayer = cc.Layer.extend
 
 //    },
 
-    onEnter:function()
-
-    {
+    onEnter:function() {
 
         _hmt.push(["_trackEvent", "button", "gameStart"]);
 
@@ -175,7 +137,7 @@ var GameLayer = cc.Layer.extend
 
     },
 
-    onExit:function(){
+    onExit:function() {
 
         cc.unregisterTouchDelegate(this);
 
@@ -183,30 +145,19 @@ var GameLayer = cc.Layer.extend
 
     },
 
-    onTouchBegan:function (touch, event) {
-
+    onTouchBegan:function(touch, event) {
         this.touchBeginPosition = touch.getLocation();
-
         this.playerBeginPosition = this.player.getPosition();
-
         var inViewPosition = this.player.convertToNodeSpace(this.touchBeginPosition);
 
         if(inViewPosition.x > 0  && inViewPosition.x < this.playerSize.width && inViewPosition.y > 0 && inViewPosition.y <this.playerSize.height){
-
             this.isSelected = true;
-
             if(this.isStart == false) {
-
                 this.startGame();
-
                 this.isStart = true;
-
             }
-
         }
-
         return true;
-
     },
 
     startGame:function(){
@@ -250,7 +201,7 @@ var GameLayer = cc.Layer.extend
 
             var size1 = cc.size(this.enmeyList[i].getContentSize().width-20,this.enmeyList[i].getContentSize().height-20-(i==3?5:0));
 
-            var rect1 =  cc.rect(currentPosition.x-size1.width/2,currentPosition.y-size1.height/2,size1.width,size1.height);
+            var rect1 = cc.rect(currentPosition.x-size1.width/2,currentPosition.y-size1.height/2,size1.width,size1.height);
 
             var size2 = cc.size(this.player.getContentSize().width-20,this.player.getContentSize().height-20);
 
@@ -280,7 +231,7 @@ var GameLayer = cc.Layer.extend
 
     onGameOver:function(){
 
-        var words= ["一星","一星","一星","Super达人"];
+        var words= ["一星","二星","三星","Super达人"];
 
         var word = words[0];
 
@@ -486,9 +437,7 @@ var GameLayer = cc.Layer.extend
 
     },
 
-    init:function()
-
-    {
+    init:function() {
 
         var bRet = false;
 
