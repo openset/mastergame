@@ -23,11 +23,11 @@ var sound_restart = "res/restart.mp3";
 var sound_start = "res/start.mp3";
 
 var res_f_head = "res/f_head.png";
-var res_f_head1 = "res/f_head_1.png";
+var res_f_head1 = "res/f_head1.png";
 var res_f_head2 = "res/f_head2.png";
-var res_k_head1 = "res/k_head_1.png";
-var res_f_head3 = "res/f_head_3.jpg";
-var res_k_head3 = "res/k_head_3.jpg";
+var res_f_head3 = "res/f_head3.jpg";
+var res_k_head1 = "res/k_head1.png";
+var res_k_head3 = "res/k_head3.jpg";
 var g_resources = [
     {src:res_enemy01},
     {src: res_enemy02},
@@ -50,6 +50,5 @@ var g_resources = [
     {src:res_f_head2},
     {src:res_f_head1},
     {src:res_k_head1},{src:res_k_head3},{src:res_f_head3}
-
 
 ];
