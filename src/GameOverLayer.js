@@ -2,8 +2,7 @@
  * Created by Andy Wang on 2015/7/3.
  */
 
-var GameOverLayer = cc.Layer.extend
-({
+var GameOverLayer = cc.Layer.extend({
     target:null,
     shareSprite:null,
     menu:null,

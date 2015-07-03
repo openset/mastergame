@@ -232,13 +232,15 @@ var GameLayer = cc.Layer.extend({
         var words= ["一星","二星","三星","Super达人"];
         var word = words[0];
         var text = 1;
-        var score = this.time.toFixed(2);
+        var score = this.time.toFixed(4);
         //提交服务器数据,与服务器交互
         $(function(){
             var domain = window.location.host;
             var url='http://'+domain+'/gomaster/webapp/bms/index.php?c=h5games&a=doscore';
-            $.post(url, {username: "test", score: score}, function(data){
-                // alert(data.data);
+            $.post(url, {userid: 123, score: score}, function(data){
+                if(data.result==0){
+                    alert(data.message);
+                }
             }, "json");
         });
 

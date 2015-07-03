@@ -2,8 +2,7 @@
  * Created by Andy Wang on 2015/7/3.
  */
 
-var ContentLayer = cc.Layer.extend
-({
+var ContentLayer = cc.Layer.extend({
     target:null,
     setCallback:function(target){
         this.target = target;
