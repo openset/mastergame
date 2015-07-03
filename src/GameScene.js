@@ -122,9 +122,7 @@ var GameLayer = cc.Layer.extend({
     },
 
 //    registerWithTouchDispatcher:function(){
-
 //        cc.Director.getInstance().getTouchDispatcher()._addTargetedDelegate(this,PriorityLayer,true);
-
 //    },
 
     onEnter:function() {
@@ -235,11 +233,12 @@ var GameLayer = cc.Layer.extend({
         var word = words[0];
         var text = 1;
         var score = this.time.toFixed(2);
-        var domain = window.location.host;
-        var url='http://'+domain+'/gomaster/webapp/bms/index.php?c=h5games&a=doscore';
+        //提交服务器数据,与服务器交互
         $(function(){
+            var domain = window.location.host;
+            var url='http://'+domain+'/gomaster/webapp/bms/index.php?c=h5games&a=doscore';
             $.post(url, {username: "test", score: score}, function(data){
-                alert(data.data);
+                // alert(data.data);
             }, "json");
         });
 
