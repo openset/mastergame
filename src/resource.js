@@ -30,9 +30,9 @@ var res_k_head2 = "res/k_head2.png";
 var res_k_head3 = "res/k_head3.jpg";
 var g_resources = [
     {src:res_enemy01},
-    {src: res_enemy02},
-    {src: res_enemy03},
-    {src: res_enemy04},
+    {src:res_enemy02},
+    {src:res_enemy03},
+    {src:res_enemy04},
     {src:res_player},
     {src:res_ad2},
     {src:res_agin_btn},
