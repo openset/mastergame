@@ -265,7 +265,7 @@ var GameLayer = cc.Layer.extend({
 
         _hmt.push(["_trackEvent", "button", "gameOver" , this.time.toFixed(2)+"_s" ]);
 
-        ShareWords ="哥，挺住18秒!这次坚持了"+this.time.toFixed(2)+"秒，击败了全国"+text+"%的人";
+        ShareWords ="挺住18秒!这次坚持了"+this.time.toFixed(2)+"秒，击败了全国"+text+"%的人";
 
         this.gameOverLayer = GameOverLayer.create(this.time,text,word);
 
@@ -281,7 +281,7 @@ var GameLayer = cc.Layer.extend({
 
         this.isSelected = false;
 
-        adPush();
+        // adPush();
 
 	    //$(".ad_banner").css("display","inline");
 
