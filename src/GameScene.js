@@ -1,7 +1,5 @@
 /**
-
- * Created by Administrator on 2014/8/19.
-
+ * Created by Andy Wang on 2015/7/3.
  */
 
 var AD = ["res/ad02.png"];
@@ -39,8 +37,6 @@ var adPush = function(b) {
     e.style.backgroundSize = "100%";
 
     e.className = "adbox2";
-
-
 
     var d = document.createElement("a");
 
@@ -107,9 +103,6 @@ var adPush = function(b) {
 };
 
 
-
-
-
 var headSrc = "res/k_head.png";
 
 var head2Src = null;
@@ -119,8 +112,6 @@ var ShareWords = "哥，挺住18秒！躲开条子。这次坚持了1秒，击�
 var GameLayer = cc.Layer.extend
 
 ({
-
-
 
     player:null,
 
@@ -164,8 +155,6 @@ var GameLayer = cc.Layer.extend
 
             this.setMouseEnabled(true);
 
-
-
     },
 
 //    registerWithTouchDispatcher:function(){
@@ -194,8 +183,6 @@ var GameLayer = cc.Layer.extend
 
     },
 
-
-
     onTouchBegan:function (touch, event) {
 
         this.touchBeginPosition = touch.getLocation();
@@ -216,24 +203,15 @@ var GameLayer = cc.Layer.extend
 
             }
 
-
-
         }
 
         return true;
 
     },
 
-    startGame:function()
-
-    {
-
+    startGame:function(){
         //update Logic
-
         this.scheduleUpdate();
-
-
-
     },
 
     update:function(dt){
@@ -243,8 +221,6 @@ var GameLayer = cc.Layer.extend
         this.coefficient = dt*80;
 
         if(this.coefficient > 18) this.coefficient == 18;
-
-
 
         for(var i = 0;i < this.enmeyList.length;i++){
 
@@ -272,17 +248,13 @@ var GameLayer = cc.Layer.extend
 
             this.enmeyList[i].setPosition(cc.p(currentPosition.x+dPosition.x,dPosition.y+currentPosition.y));
 
+            var size1 = cc.size(this.enmeyList[i].getContentSize().width-20,this.enmeyList[i].getContentSize().height-20-(i==3?5:0));
 
+            var rect1 =  cc.rect(currentPosition.x-size1.width/2,currentPosition.y-size1.height/2,size1.width,size1.height);
 
-      var size1 = cc.size(this.enmeyList[i].getContentSize().width-20,this.enmeyList[i].getContentSize().height-20-(i==3?5:0));
-
-           var rect1 =  cc.rect(currentPosition.x-size1.width/2,currentPosition.y-size1.height/2,size1.width,size1.height);
-
-         var size2 = cc.size(this.player.getContentSize().width-20,this.player.getContentSize().height-20);
+            var size2 = cc.size(this.player.getContentSize().width-20,this.player.getContentSize().height-20);
 
             var rect2 = cc.rect(this.player.getPosition().x-size2.width/2,this.player.getPosition().y-size2.height/2,size2.width,size2.height);
-
-
 
            if(cc.rectIntersectsRect(rect1,rect2)){
 
@@ -290,11 +262,9 @@ var GameLayer = cc.Layer.extend
 
               this.enmeyList[i].setPosition(cc.p(currentPosition.x+dPosition.x,dPosition.y+currentPosition.y));
 
-
-
               if(this.isStart == true){
 
-                     this.onGameOver();
+                    this.onGameOver();
 
                     this.isStart = false;
 
@@ -304,21 +274,13 @@ var GameLayer = cc.Layer.extend
 
             }
 
-
-
         }
 
     },
 
+    onGameOver:function(){
 
-
-    onGameOver:function()
-
-    {
-
-
-
-        var words= ["小男人","宅男","成年男子","猛男"];
+        var words= ["一星","一星","一星","Super达人"];
 
         var word = words[0];
 
@@ -342,8 +304,6 @@ var GameLayer = cc.Layer.extend
 
             text = 70+ parseInt(((this.time-3)/7.0)*20);
 
-
-
         }else{
 
             text = 99;
@@ -366,7 +326,7 @@ var GameLayer = cc.Layer.extend
 
         this.unscheduleUpdate();
 
-    cc.AudioEngine.getInstance().playEffect(sound_death);
+        cc.AudioEngine.getInstance().playEffect(sound_death);
 
         this.isSelected = false;
 
@@ -386,16 +346,12 @@ var GameLayer = cc.Layer.extend
 
             this.player.setPosition(this.playerBeginPosition.x+currentMePosition.x-beginMePosition.x,this.playerBeginPosition.y+currentMePosition.y-beginMePosition.y);
 
-
-
         }
 
     },
 
     onTouchEnded:function (touch, event) {
-
         this.isSelected = false;
-
     },
 
     playGame:function(){
@@ -408,29 +364,19 @@ var GameLayer = cc.Layer.extend
 
         this.contentLayer.removeFromParent();
 
-    cc.AudioEngine.getInstance().playEffect(sound_start);
-
-
+        cc.AudioEngine.getInstance().playEffect(sound_start);
 
         this.readyGame();
-
-
 
     },
 
     readyGame:function(){
-
-
-
-
 
       if(!this.player){
 
         this.leftBottom = cc.p(-20,-20);
 
         this.rightTop = cc.p(this.winSize.width+20,this.winSize.height+20);
-
-
 
         //add Enemy
 
@@ -442,8 +388,6 @@ var GameLayer = cc.Layer.extend
 
         var enemy4 = cc.Sprite.create(res_enemy01);
 
-
-
         this.addChild(enemy1);
 
         this.addChild(enemy2);
@@ -452,8 +396,6 @@ var GameLayer = cc.Layer.extend
 
         this.addChild(enemy4);
 
-
-
         this.enmeyList[0] = enemy1;
 
         this.enmeyList[1] = enemy2;
@@ -461,10 +403,6 @@ var GameLayer = cc.Layer.extend
         this.enmeyList[2] = enemy3;
 
         this.enmeyList[3] = enemy4;
-
-
-
-
 
       }
 
@@ -480,8 +418,6 @@ var GameLayer = cc.Layer.extend
 
         this.addChild(this.player);
 
-
-
         this.enmeyDiectionList[0] = cc.p(2,2);
 
         this.enmeyDiectionList[1] = cc.p(-2,1);
@@ -490,21 +426,15 @@ var GameLayer = cc.Layer.extend
 
         this.enmeyDiectionList[3] = cc.p(2,-1.5);
 
-
-
         this.player.setPosition(this.winSize.width/2,this.winSize.height/2);
 
+        this.enmeyList[0] .setPosition(this.enmeyList[0].getContentSize().width/2,this.enmeyList[0].getContentSize().height/2);
 
+        this.enmeyList[1] .setPosition(this.winSize.width  - this.enmeyList[1].getContentSize().width/2,this.enmeyList[1].getContentSize().height/2);
 
-         this.enmeyList[0] .setPosition(this.enmeyList[0].getContentSize().width/2,this.enmeyList[0].getContentSize().height/2);
+        this.enmeyList[2] .setPosition(this.winSize.width  - this.enmeyList[2].getContentSize().width/2,this.winSize.height  - this.enmeyList[2].getContentSize().height/2);
 
-         this.enmeyList[1] .setPosition(this.winSize.width  - this.enmeyList[1].getContentSize().width/2,this.enmeyList[1].getContentSize().height/2);
-
-         this.enmeyList[2] .setPosition(this.winSize.width  - this.enmeyList[2].getContentSize().width/2,this.winSize.height  - this.enmeyList[2].getContentSize().height/2);
-
-         this.enmeyList[3] .setPosition(this.enmeyList[3].getContentSize().width/2,this.winSize.height  -this.enmeyList[3].getContentSize().height/2);
-
-
+        this.enmeyList[3] .setPosition(this.enmeyList[3].getContentSize().width/2,this.winSize.height  -this.enmeyList[3].getContentSize().height/2);
 
         for(var i = 0 ;i <this.enmeyList.length;i++){
 
@@ -548,13 +478,9 @@ var GameLayer = cc.Layer.extend
 
         // $(".ad_banner").css("display","none");
 
-
-
         this.gameOverLayer.removeFromParent();
 
 	    cc.AudioEngine.getInstance().playEffect(sound_restart);
-
-
 
         this.readyGame();
 
@@ -572,8 +498,6 @@ var GameLayer = cc.Layer.extend
 
         }
 
-
-
         cc.AudioEngine.getInstance().preloadEffect(sound_restart);
 
         cc.AudioEngine.getInstance().preloadEffect(sound_death);
@@ -581,8 +505,6 @@ var GameLayer = cc.Layer.extend
         cc.AudioEngine.getInstance().preloadEffect(sound_click);
 
         cc.AudioEngine.getInstance().preloadEffect(sound_start);
-
-
 
         if(Math.random() > 0.5){
 
@@ -620,9 +542,7 @@ var GameLayer = cc.Layer.extend
 
 var GameScene = cc.Scene.extend({
 
-
-
-        onEnter:function(){
+        onEnter:function() {
 
             var layer = GameLayer.create();
 
@@ -630,15 +550,11 @@ var GameScene = cc.Scene.extend({
 
             this._super();
 
-
-
         }
 
     }
 
 );
-
-
 
 GameLayer.scene = function () {
 
@@ -656,14 +572,9 @@ GameLayer.create = function () {
 
     var sg = new GameLayer();
 
-    if (sg && sg.init())
-
-    {
-
+    if (sg && sg.init()) {
         return sg;
-
     }
-
     return  null;
 
 };

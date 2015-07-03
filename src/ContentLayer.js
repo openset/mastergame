@@ -1,6 +1,7 @@
 /**
- * Created by Administrator on 2014/8/19.
+ * Created by Andy Wang on 2015/7/3.
  */
+
 var ContentLayer = cc.Layer.extend
 ({
     target:null,
@@ -65,8 +66,7 @@ var ContentLayer = cc.Layer.extend
 
 ContentLayer.create = function () {
     var sg = new ContentLayer();
-    if (sg && sg.init())
-    {
+    if (sg && sg.init()) {
         return sg;
     }
     return  null;

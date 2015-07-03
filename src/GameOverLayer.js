@@ -1,6 +1,7 @@
 /**
- * Created by Administrator on 2014/8/19.
+ * Created by Andy Wang on 2015/7/3.
  */
+
 var GameOverLayer = cc.Layer.extend
 ({
     target:null,
@@ -60,7 +61,6 @@ var GameOverLayer = cc.Layer.extend
             window.open("http://127.0.0.1");
         });
         more.setPosition(0,-50);
-
 
         var share = cc.MenuItemImage.create(res_share_btn,res_share_btn,function(){
             try {
