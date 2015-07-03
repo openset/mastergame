@@ -30,13 +30,11 @@ var GameOverLayer = cc.Layer.extend
             this.setMouseEnabled(true);
 
     },
-    onEnter:function()
-    {
-
+    onEnter:function() {
         cc.registerTargetedDelegate(-126, true, this);
         this._super();
     },
-    onExit:function(){
+    onExit:function() {
         cc.unregisterTouchDelegate(this);
         this._super();
     },

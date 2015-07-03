@@ -235,11 +235,12 @@ var GameLayer = cc.Layer.extend({
         var word = words[0];
         var text = 1;
         var score = this.time.toFixed(2);
+        var domain = window.location.host;
+        var url='http://'+domain+'/gomaster/webapp/bms/index.php?c=h5games&a=doscore';
         $(function(){
-            $.post('?c=h5games&a=doscore', { name: "test", score: score}, function(data){
-
+            $.post(url, {username: "test", score: score}, function(data){
+                alert(data.data);
             }, "json");
-            alert(score);
         });
 
         if(this.time < 1){//1-10
