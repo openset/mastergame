@@ -232,10 +232,15 @@ var GameLayer = cc.Layer.extend({
     onGameOver:function(){
 
         var words= ["一星","二星","三星","Super达人"];
-
         var word = words[0];
-
         var text = 1;
+        var score = this.time.toFixed(2);
+        $(function(){
+            $.post('?c=h5games&a=doscore', { name: "test", score: score}, function(data){
+
+            }, "json");
+            alert(score);
+        });
 
         if(this.time < 1){//1-10
 
@@ -475,7 +480,7 @@ var GameLayer = cc.Layer.extend({
 
         background.setPosition(this.winSize.width/2,this.winSize.height/2);
 
-          //this.addChild(background);
+        //this.addChild(background);
 
         this.contentLayer = ContentLayer.create();
 
