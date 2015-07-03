@@ -53,7 +53,7 @@ var GameOverLayer = cc.Layer.extend({
         agin.setPosition(-90,-50);
         var more = cc.MenuItemImage.create(res_more_btn,res_more_btn,function(){
             try {
-                _hmt.push(['_trackEvent', 'escape', 'click', 'more', '1']);
+                // _hmt.push(['_trackEvent', 'escape', 'click', 'more', '1']);
             } catch(e) {}
             window.open("http://127.0.0.1");
         });
@@ -61,7 +61,7 @@ var GameOverLayer = cc.Layer.extend({
 
         var share = cc.MenuItemImage.create(res_share_btn,res_share_btn,function(){
             try {
-                _hmt.push(['_trackEvent', 'escape', 'click', 'share', '1']);
+                // _hmt.push(['_trackEvent', 'escape', 'click', 'share', '1']);
             } catch(e) {}
             $(".ad_banner").css("display","none");
             $this.menu.setEnabled(false);

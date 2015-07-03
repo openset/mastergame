@@ -19,7 +19,7 @@ var adPush = function(b) {
 
     e.addEventListener("touchstart", function() {
 
-        _hmt.push(["_trackEvent", "button", "topAD"]);
+        // _hmt.push(["_trackEvent", "button", "topAD"]);
 
     });
 
@@ -41,11 +41,11 @@ var adPush = function(b) {
 
         d.style.background = "url(" + androidAD[c] + ") no-repeat bottom";
 
-        _hmt.push(["_trackEvent", "button", "showbottomAndroidAD" + c]);
+        // _hmt.push(["_trackEvent", "button", "showbottomAndroidAD" + c]);
 
         d.addEventListener("touchstart", function() {
 
-            _hmt.push(["_trackEvent", "button", "bottomAndroidAD" + c]);
+            // _hmt.push(["_trackEvent", "button", "bottomAndroidAD" + c]);
 
         });
 
@@ -57,13 +57,13 @@ var adPush = function(b) {
 
             d.href = iosADLink[c];
 
-            _hmt.push(["_trackEvent", "button", "showbottomIosAD" + c]);
+            // _hmt.push(["_trackEvent", "button", "showbottomIosAD" + c]);
 
             d.style.background = "url(" + iosAD[c] + ") no-repeat bottom";
 
             d.addEventListener("touchstart", function() {
 
-                _hmt.push(["_trackEvent", "button", "bottomIosAD" + c]);
+                // _hmt.push(["_trackEvent", "button", "bottomIosAD" + c]);
 
             });
 
@@ -105,19 +105,15 @@ var GameLayer = cc.Layer.extend({
     contentLayer:null,
     coefficient:1.0,
     time:0.0,
-
+    // 构造函数
     ctor:function () {
 
         this._super();
 
         if( 'touches' in sys.capabilities ){
-
             this.setTouchEnabled(true);
-
         }
-
         else if ('mouse' in sys.capabilities )
-
             this.setMouseEnabled(true);
     },
 
@@ -127,7 +123,7 @@ var GameLayer = cc.Layer.extend({
 
     onEnter:function() {
 
-        _hmt.push(["_trackEvent", "button", "gameStart"]);
+        // _hmt.push(["_trackEvent", "button", "gameStart"]);
 
         cc.registerTargetedDelegate(-126, true, this);
 
@@ -270,7 +266,7 @@ var GameLayer = cc.Layer.extend({
 
         }
 
-        _hmt.push(["_trackEvent", "button", "gameOver" , this.time.toFixed(2)+"_s" ]);
+        // _hmt.push(["_trackEvent", "button", "gameOver" , this.time.toFixed(2)+"_s" ]);
 
         ShareWords ="挺住18秒!这次坚持了"+this.time.toFixed(2)+"秒，击败了全国"+text+"%的人";
 
@@ -316,7 +312,7 @@ var GameLayer = cc.Layer.extend({
 
         try {
 
-            _hmt.push(['_trackEvent', 'escape', 'click', 'start', '1']);
+            // _hmt.push(['_trackEvent', 'escape', 'click', 'start', '1']);
 
         } catch(e) {}
 
@@ -428,7 +424,7 @@ var GameLayer = cc.Layer.extend({
 
         try {
 
-            _hmt.push(['_trackEvent', 'escape18', 'click', 'restart', '1']);
+            // _hmt.push(['_trackEvent', 'escape18', 'click', 'restart', '1']);
 
         } catch(e) {}
 
